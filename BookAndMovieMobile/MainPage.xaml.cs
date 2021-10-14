@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BookAndMovieMobile.Model.Movie;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +17,7 @@ namespace BookAndMovieMobile
         public MainPage()
         {
             InitializeComponent();
+            
         }
     }
 }

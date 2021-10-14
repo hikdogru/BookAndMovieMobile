@@ -1,12 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:BookAndMovieMobile.ViewModel.Movie"
              x:Class="BookAndMovieMobile.View.TabMenu.TabControl">
 
+    <ContentPage.BindingContext>
+        <local:MovieViewModel />
+    </ContentPage.BindingContext>
 
 
     <ContentPage Title="Home" IconImageSource="house.png">
-        <Label Text="Home page"></Label>
+        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Padding="20, 0">
+
+                            <ContentView>
+                                <FlexLayout AlignItems="Center">
+                                    <Label Text="{Binding OriginalTitle}" FontSize="Large" Margin="20, 5"></Label>
+                                    
+                                </FlexLayout>
+                            </ContentView>
+
+                            <ContentView >
+                            <Image x:Name="movieImage" Source="{Binding PosterPath}"></Image>
+                            </ContentView>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </ContentPage>
 
 
