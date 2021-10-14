@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookAndMovieMobile.View.TabMenu.TabControl">
+
+
+
+    <ContentPage Title="Home" IconImageSource="house.png">
+        <Label Text="Home page"></Label>
+    </ContentPage>
+
+
+    <ContentPage Title="TVShow" IconImageSource="tvshow.png">
+        <Label Text="TVShow page"></Label>
+    </ContentPage>
+
+    <ContentPage Title="Movie" IconImageSource="movie.png">
+        <Label Text="Movie page"></Label>
+    </ContentPage>
+
+    <ContentPage Title="Book" IconImageSource="book.png">
+        <Label Text="Book page"></Label>
+    </ContentPage>
+
+</TabbedPage>

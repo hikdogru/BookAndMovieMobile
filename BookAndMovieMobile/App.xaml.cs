@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookAndMovieMobile.View.TabMenu;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace BookAndMovieMobile
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new TabControl();
         }
 
         protected override void OnStart()
