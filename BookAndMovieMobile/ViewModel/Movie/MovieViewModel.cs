@@ -22,6 +22,7 @@ namespace BookAndMovieMobile.ViewModel.Movie
             string clientUrl = "https://api.themoviedb.org/3/movie/popular?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
             var movies = new TMDBModel().GetMoviesFromTMDB(url: clientUrl);
             movies.ForEach(m => Movies.Add(m));
+            //Movies.Add(movies[0]);
         }
     }
 }

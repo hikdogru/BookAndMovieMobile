@@ -4,31 +4,42 @@
             xmlns:local="clr-namespace:BookAndMovieMobile.ViewModel.Movie"
              x:Class="BookAndMovieMobile.View.TabMenu.TabControl">
 
-    <ContentPage.BindingContext>
+    <TabbedPage.BindingContext>
         <local:MovieViewModel />
-    </ContentPage.BindingContext>
+    </TabbedPage.BindingContext>
 
 
     <ContentPage Title="Home" IconImageSource="house.png">
-        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}">
+
+        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}" RowHeight="600" >
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
+                        <StackLayout>
 
-                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Padding="20, 0">
+                            <StackLayout>
+                                <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
+                                <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                            </StackLayout>
+                            
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="star.png" />
+                                <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                </Label>
 
-                            <ContentView>
-                                <FlexLayout AlignItems="Center">
-                                    <Label Text="{Binding OriginalTitle}" FontSize="Large" Margin="20, 5"></Label>
-                                    
-                                </FlexLayout>
-                            </ContentView>
+                            </StackLayout>
 
-                            <ContentView >
-                            <Image x:Name="movieImage" Source="{Binding PosterPath}"></Image>
-                            </ContentView>
-                        </FlexLayout>
+                            <StackLayout HorizontalOptions="Center">
+                                <ImageButton Source="detail.png" BackgroundColor="Transparent"></ImageButton>
+                            </StackLayout>
+
+
+                        </StackLayout>
+
                     </ViewCell>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
