@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookAndMovieMobile.View.TabMenu"
+             x:Class="BookAndMovieMobile.View.Pages.MovieDetail">
+
+    
+    
+    
+    <ContentPage.Content>
+        
+        <StackLayout>
+            
+            <StackLayout>
+                <Label  Text="Movie Detail Page" FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Image x:Name="movieImage"  HorizontalOptions="Center" Margin="10"></Image>
+                <Label  x:Name="movieOriginalTitle" FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Label  x:Name="movieReleaseDate"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Label  x:Name="moviePopularity"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Label  x:Name="movieOverview"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image Source="star.png" />
+                <Label  x:Name="movieVoteAverage"  FontSize="Medium" HorizontalOptions="Center"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
