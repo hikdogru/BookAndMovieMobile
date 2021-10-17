@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookAndMovieMobile.View.Pages.BookDetail">
+
+    <ContentPage.Content>
+
+
+        <ScrollView>
+            <StackLayout>
+                <Label  Text="Book Detail Page" FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Image  x:Name="bookImage"  HorizontalOptions="Center" Margin="10"></Image>
+                <Label  x:Name="bookTitle" FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Label  x:Name="bookAuthor"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                <Label  x:Name="bookPublisher"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Image Source="star.png" />
+                    <Label  x:Name="bookAverageRating"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <Label  x:Name="bookDescription"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5"></Label>
+                
+            </StackLayout>
+
+           
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

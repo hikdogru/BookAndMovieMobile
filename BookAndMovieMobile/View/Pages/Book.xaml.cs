@@ -15,6 +15,7 @@ namespace BookAndMovieMobile.View.Pages
         public Book()
         {
             InitializeComponent();
+            
         }
     }
 }

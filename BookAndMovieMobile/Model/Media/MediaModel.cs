@@ -6,7 +6,7 @@ namespace BookAndMovieMobile.Model.Media
 {
     public class MediaModel
     {
-        private string _rootImageUrl = "https://image.tmdb.org/t/p/w500";
+        private string _rootImageUrl = "https://image.tmdb.org/t/p/w300";
         private string _posterImageUrl;
         private string _backdropImageUrl;
 

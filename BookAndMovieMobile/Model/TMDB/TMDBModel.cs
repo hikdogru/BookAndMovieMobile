@@ -19,6 +19,7 @@ namespace BookAndMovieMobile.Model.TMDB
     {
         public MovieJsonModel MovieJsonModel { get; set; }
         public MovieModel MovieModel { get; set; }
+        public TVShowModel TVShowModel { get; set; }
         public TVShowJsonModel TVShowJsonModel { get; set; }
         public List<TVShowModel> GetTVShowsFromTMDB(string url)
         {
@@ -38,6 +39,12 @@ namespace BookAndMovieMobile.Model.TMDB
             return MovieModel;
         }
 
+        public TVShowModel GetTVShowFromTMDB(string url)
+        {
+            GetContentFromTMDB(url: url, modelNo: 4);
+            return TVShowModel;
+        }
+
         private void GetContentFromTMDB(string url, int modelNo)
         {
             string clientUrl = url;
@@ -50,10 +57,14 @@ namespace BookAndMovieMobile.Model.TMDB
             {
                 MovieJsonModel = jsonConvertModel.GetContent<MovieJsonModel>(response.Content);
             }
-            else
+            else if (modelNo == 3)
             {
                 MovieModel = jsonConvertModel.GetContent<MovieModel>(response.Content);
 
+            }
+            else
+            {
+                TVShowModel = jsonConvertModel.GetContent<TVShowModel>(response.Content);
             }
 
         }
