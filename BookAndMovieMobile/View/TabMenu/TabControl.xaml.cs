@@ -22,7 +22,6 @@ namespace BookAndMovieMobile.View.TabMenu
         public TabControl()
         {
             InitializeComponent();
-            On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
            
         }
     }

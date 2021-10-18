@@ -20,7 +20,8 @@
                     <Image Source="star.png" />
                     <Label  x:Name="movieVoteAverage"  FontSize="Medium" HorizontalOptions="Center"></Label>
                 </StackLayout>
-                <Label  x:Name="movieOverview"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5"></Label>
+                <Editor  x:Name="movieOverview"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5" HeightRequest="1000"/>
+
             </StackLayout>
 
         </ScrollView>

@@ -17,8 +17,9 @@
                     <Image Source="star.png" />
                     <Label  x:Name="bookAverageRating"  FontSize="Medium" HorizontalOptions="Center"></Label>
                 </StackLayout>
-                <Label  x:Name="bookDescription"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5"></Label>
-                
+                <!--<Label  x:Name="bookDescription"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5" HeightRequest="800" LineBreakMode="TailTruncation"></Label>-->
+                <Editor  x:Name="bookDescription"  FontSize="Medium" HorizontalOptions="Center" Margin="10 , 5" HeightRequest="1000"/>
+
             </StackLayout>
 
            

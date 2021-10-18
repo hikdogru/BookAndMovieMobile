@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tvShow="clr-namespace:BookAndMovieMobile.ViewModel.TVShow"
              x:Class="BookAndMovieMobile.View.Pages.TVShow">
-   
-    
-    
+
+
+
     <ContentPage.BindingContext>
         <tvShow:TVShowViewModel />
     </ContentPage.BindingContext>
 
 
-    <ListView x:Name="TVShowList" ItemsSource="{Binding TVShows}" RowHeight="600" >
+    <!--<ListView x:Name="TVShowList" ItemsSource="{Binding TVShows}" RowHeight="600" >
         <ListView.ItemTemplate>
             <DataTemplate>
 
@@ -46,6 +46,14 @@
 
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
 
+
+
+    <StackLayout>
+        <Button Text="Wishlist" BackgroundColor="Beige"/>
+        <Button Text="Watchedlist" BackgroundColor="Beige"/>
+        <Button Text="Favouritelist" BackgroundColor="Beige"/>
+        <Button Text="Search" BackgroundColor="Beige" Command="{Binding TVShowSearchCommand}" />
+    </StackLayout>
 </ContentPage>

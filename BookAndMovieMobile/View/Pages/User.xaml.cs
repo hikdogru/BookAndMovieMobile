@@ -10,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace BookAndMovieMobile.View.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TVShow : ContentPage
+    public partial class User : ContentPage
     {
-        public TVShow()
+        public User()
         {
             InitializeComponent();
         }
-
     }
 }

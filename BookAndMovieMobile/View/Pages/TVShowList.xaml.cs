@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookAndMovieMobile.Model.TV;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace BookAndMovieMobile.View.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TVShow : ContentPage
+    public partial class TVShowList : ContentPage
     {
-        public TVShow()
+        public TVShowList(List<TVShowModel> tvShows)
         {
             InitializeComponent();
+            tvShowList.ItemsSource = tvShows;
         }
-
     }
 }

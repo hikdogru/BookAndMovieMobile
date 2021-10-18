@@ -2,7 +2,10 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:BookAndMovieMobile.View.Pages"
-             x:Class="BookAndMovieMobile.View.TabMenu.TabControl">
+             x:Class="BookAndMovieMobile.View.TabMenu.TabControl"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.OffscreenPageLimit="1">
 
 
 
@@ -13,6 +16,8 @@
     <local:Movie Title="Movie" IconImageSource="movie.png" />
 
     <local:Book Title="Book" IconImageSource="book.png" />
+    
+    <local:User Title="User" IconImageSource="user.png"/>
 
 
 

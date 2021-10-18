@@ -12,7 +12,8 @@ namespace BookAndMovieMobile.Model.Json
 
         public JsonConvertModel(NamingStrategy namingStrategy)
         {
-            Settings = new JsonSerializerSettings { ContractResolver = new DefaultContractResolver { NamingStrategy = namingStrategy } };
+            Settings = new JsonSerializerSettings { ContractResolver = new DefaultContractResolver { NamingStrategy = namingStrategy } , 
+                NullValueHandling = NullValueHandling.Ignore };
         }
 
         public T GetContent<T>(string jsonContent)

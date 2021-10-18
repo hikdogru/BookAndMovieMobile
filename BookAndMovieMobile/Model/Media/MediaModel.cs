@@ -16,7 +16,7 @@ namespace BookAndMovieMobile.Model.Media
         /// <summary>
         /// Media's image url
         /// </summary>
-        public string PosterPath
+        public string? PosterPath
         {
             get => _posterImageUrl;
             set
@@ -34,11 +34,11 @@ namespace BookAndMovieMobile.Model.Media
             get => _backdropImageUrl;
             set
             {
-
                 if (value.Contains(_rootImageUrl) == false)
                     _backdropImageUrl = _rootImageUrl + value;
                 else
                     _backdropImageUrl = value;
+
             }
         }
         public int VoteCount { get; set; }
