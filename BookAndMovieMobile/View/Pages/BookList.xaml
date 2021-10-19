@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookAndMovieMobile.View.Pages.BookList">
+    <ContentPage.Content>
+
+        <ListView x:Name="bookList" ItemsSource="{Binding Books}" RowHeight="300" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell>
+                        <StackLayout>
+
+                            <StackLayout>
+                                <Image x:Name="bookImage" Source="{Binding Thumbnail}" HorizontalOptions="Center" Margin="20"></Image>
+                                <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Authors[0]}" FontSize="Large" HorizontalOptions="Center"></Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="star.png" />
+                                <Label Text="{Binding AverageRating}" FontSize="Large">
+                                </Label>
+
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="Center">
+                                <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.BookDetailCommand, Source={x:Reference bookList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </ContentPage.Content>
+</ContentPage>

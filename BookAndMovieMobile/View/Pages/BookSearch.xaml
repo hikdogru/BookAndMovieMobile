@@ -1,28 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tvShow="clr-namespace:BookAndMovieMobile.ViewModel.TVShow"
-             x:Class="BookAndMovieMobile.View.Pages.TVShowSearch">
-
-
-    <ContentPage.BindingContext>
-        <tvShow:TVShowViewModel />
-    </ContentPage.BindingContext>
+             xmlns:book="clr-namespace:BookAndMovieMobile.ViewModel.Book"
+             x:Class="BookAndMovieMobile.View.Pages.BookSearch">
+   
     
+    <ContentPage.BindingContext>
+        <book:BookViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        
-        
         <StackLayout Orientation="Horizontal">
-            <Entry x:Name="txtSearchQuery" Placeholder="Search TV Show" FontSize="Large" TextColor="#845cd6"  Text="{Binding SearchQuery}"/>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"  Text="{Binding SearchQuery}"/>
             <ImageButton Source="search.png" BackgroundColor="Transparent" Clicked="ButtonClicked"
             FlexLayout.AlignSelf="Center"
             FlexLayout.Grow="1"
             Aspect="AspectFit"  Command="{Binding SearchCommand}" />
         </StackLayout>
-
     </ContentPage.Content>
-
-   
-   
-
 </ContentPage>

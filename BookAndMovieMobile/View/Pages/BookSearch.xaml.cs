@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace BookAndMovieMobile.View.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TVShowSearch : ContentPage
+    public partial class BookSearch : ContentPage
     {
-        public TVShowSearch()
+        public BookSearch()
         {
             InitializeComponent();
         }
@@ -20,8 +20,7 @@ namespace BookAndMovieMobile.View.Pages
         private void ButtonClicked(object sender, EventArgs e)
         {
             txtSearchQuery.Text = "";
+            
         }
-
-
     }
 }

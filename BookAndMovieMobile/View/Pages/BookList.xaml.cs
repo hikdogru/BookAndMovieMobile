@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BookAndMovieMobile.Model.Book;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace BookAndMovieMobile.View.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TVShowSearch : ContentPage
+    public partial class BookList : ContentPage
     {
-        public TVShowSearch()
+        public BookList(ObservableCollection<BookModel> books)
         {
             InitializeComponent();
+            bookList.ItemsSource = books;
         }
-
-        private void ButtonClicked(object sender, EventArgs e)
-        {
-            txtSearchQuery.Text = "";
-        }
-
-
     }
 }

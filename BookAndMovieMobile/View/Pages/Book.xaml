@@ -9,41 +9,15 @@
     </ContentPage.BindingContext>
 
 
-    <ListView x:Name="BookList" ItemsSource="{Binding Books}" RowHeight="300" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
+   
 
-                <ViewCell>
-                    <StackLayout>
 
-                        <StackLayout>
-                            <Image x:Name="bookImage" Source="{Binding Thumbnail}" HorizontalOptions="Center" Margin="20"></Image>
-                            <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
-                            <Label Text="{Binding Authors[0]}" FontSize="Large" HorizontalOptions="Center"></Label>
-                        </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="star.png" />
-                            <Label Text="{Binding AverageRating}" FontSize="Large">
-                            </Label>
-
-                        </StackLayout>
-
-                        <StackLayout HorizontalOptions="Center">
-                            <ImageButton Source="detail.png"
-                                                 BackgroundColor="Transparent"
-                                                 x:Name="btnDetail"
-                                                 Command="{Binding Path=BindingContext.BookDetailCommand, Source={x:Reference BookList}}"
-                                                 CommandParameter="{Binding .}"
-                                                 ></ImageButton>
-                        </StackLayout>
-
-                    </StackLayout>
-
-                </ViewCell>
-
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout>
+        <Button Text="Wishlist" BackgroundColor="Beige"/>
+        <Button Text="Watchedlist" BackgroundColor="Beige"/>
+        <Button Text="Favouritelist" BackgroundColor="Beige"/>
+        <Button Text="Search" BackgroundColor="Beige" Command="{Binding BookSearchCommand}" />
+    </StackLayout>
 
 </ContentPage>

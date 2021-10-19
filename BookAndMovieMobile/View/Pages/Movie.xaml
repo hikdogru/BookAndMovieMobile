@@ -10,40 +10,10 @@
     </ContentPage.BindingContext>
 
 
-    <ListView x:Name="MovieList" ItemsSource="{Binding Movies}" RowHeight="600" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-
-                <ViewCell>
-                    <StackLayout>
-
-                        <StackLayout>
-                            <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                            <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
-                            <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
-                        </StackLayout>
-
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="star.png" />
-                            <Label Text="{Binding VoteAverage}" FontSize="Large">
-                            </Label>
-
-                        </StackLayout>
-
-                        <StackLayout HorizontalOptions="Center">
-                            <ImageButton Source="detail.png"
-                                                 BackgroundColor="Transparent"
-                                                 x:Name="btnDetail"
-                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference MovieList}}"
-                                                 CommandParameter="{Binding .}"
-                                                 ></ImageButton>
-                        </StackLayout>
-
-                    </StackLayout>
-
-                </ViewCell>
-
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout>
+        <Button Text="Wishlist" BackgroundColor="Beige"/>
+        <Button Text="Watchedlist" BackgroundColor="Beige"/>
+        <Button Text="Favouritelist" BackgroundColor="Beige"/>
+        <Button Text="Search" BackgroundColor="Beige" Command="{Binding MovieSearchCommand}" />
+    </StackLayout>
 </ContentPage>
