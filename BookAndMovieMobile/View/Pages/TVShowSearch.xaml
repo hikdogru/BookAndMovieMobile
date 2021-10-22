@@ -9,20 +9,54 @@
         <tvShow:TVShowViewModel />
     </ContentPage.BindingContext>
     
-    <ContentPage.Content>
+    
         
         
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="txtSearchQuery" Placeholder="Search TV Show" FontSize="Large" TextColor="#845cd6"  Text="{Binding SearchQuery}"/>
-            <ImageButton Source="search.png" BackgroundColor="Transparent" Clicked="ButtonClicked"
-            FlexLayout.AlignSelf="Center"
-            FlexLayout.Grow="1"
-            Aspect="AspectFit"  Command="{Binding SearchCommand}" />
-        </StackLayout>
+        <StackLayout>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search TV Show" FontSize="Large" TextColor="#845cd9" />
+            <Button Text="Search" Clicked="SearchTvShow" />
+        
+            
+            <ListView x:Name="tvShowList" RowHeight="350">
+            <ListView.ItemTemplate>
+                <DataTemplate>
 
-    </ContentPage.Content>
+                    <ViewCell>
+                        <StackLayout>
 
-   
-   
+                            <StackLayout>
+                                <Image x:Name="tvShowImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
+                                <Label Text="{Binding OriginalName}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="Center"></Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="star.png" />
+                                <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                </Label>
+
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="Center">
+                                <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.TVShowDetailCommand, Source={x:Reference tvShowList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+
+
 
 </ContentPage>

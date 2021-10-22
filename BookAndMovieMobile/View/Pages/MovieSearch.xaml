@@ -11,12 +11,49 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"  Text="{Binding SearchQuery}"/>
-            <ImageButton Source="search.png" BackgroundColor="Transparent" Clicked="ButtonClicked"
-            FlexLayout.AlignSelf="Center"
-            FlexLayout.Grow="1"
-            Aspect="AspectFit"  Command="{Binding SearchCommand}" />
+        <StackLayout>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"/>
+            <Button Text="Search"  Clicked="SearchMovie"/>
+
+
+            <ListView x:Name="movieList" RowHeight="375">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <StackLayout>
+
+                                <StackLayout>
+                                    <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
+                                    <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Image Source="star.png" />
+                                    <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="Center">
+                                    <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference movieList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}" RowHeight="600" >
+        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}" RowHeight="375" >
             <ListView.ItemTemplate>
                 <DataTemplate>
 

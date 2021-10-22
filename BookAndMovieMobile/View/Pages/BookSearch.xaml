@@ -10,12 +10,46 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"  Text="{Binding SearchQuery}"/>
-            <ImageButton Source="search.png" BackgroundColor="Transparent" Clicked="ButtonClicked"
-            FlexLayout.AlignSelf="Center"
-            FlexLayout.Grow="1"
-            Aspect="AspectFit"  Command="{Binding SearchCommand}" />
+        <StackLayout>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6" />
+            <Button Text="Search"  Clicked="SearchBook" />
+
+            <ListView x:Name="bookList" RowHeight="300" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <StackLayout>
+
+                                <StackLayout>
+                                    <Image x:Name="bookImage" Source="{Binding Thumbnail}" HorizontalOptions="Center" Margin="20"></Image>
+                                    <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Authors[0]}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="Center">
+                                    <Image Source="star.png" />
+                                    <Label Text="{Binding AverageRating}" FontSize="Large">
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="Center">
+                                    <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.BookDetailCommand, Source={x:Reference bookList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

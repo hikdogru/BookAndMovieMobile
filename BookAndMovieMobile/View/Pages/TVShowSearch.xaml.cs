@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookAndMovieMobile.Model.TMDB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace BookAndMovieMobile.View.Pages
             txtSearchQuery.Text = "";
         }
 
-
+        private void SearchTvShow(object sender, EventArgs e)
+        {
+            string clientUrl = "https://api.themoviedb.org/3/search/tv?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US" + "&query=" + txtSearchQuery.Text;
+            var model = new TMDBModel();
+            var tvshows = model.GetTVShowsFromTMDB(url: clientUrl);
+            tvShowList.ItemsSource = tvshows;
+            txtSearchQuery.Text = "";
+        }
     }
 }

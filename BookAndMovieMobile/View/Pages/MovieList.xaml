@@ -13,6 +13,7 @@
                     <DataTemplate>
 
                         <ViewCell>
+                            
                             <StackLayout>
 
                                 <StackLayout>
@@ -20,7 +21,7 @@
                                     <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
                                     <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
                                 </StackLayout>
-
+                               
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image Source="star.png" />
                                     <Label Text="{Binding VoteAverage}" FontSize="Large">
