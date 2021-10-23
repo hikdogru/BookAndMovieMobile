@@ -10,15 +10,15 @@ namespace BookAndMovieMobile.Core.Data
 {
     public interface IEntityRepository<T> where T: class, IEntity, new()
     {
-        List<T> GetAll<T>(Expression<Func<T, bool>> expression = null);
-        T Get<T>(Expression<Func<T, bool>> expression);
+        List<T> GetAll(Expression<Func<T, bool>> expression = null);
+        T Get(Expression<Func<T, bool>> expression);
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
 
 
-        Task<List<T>> GetAllAsync<T>(Expression<Func<T, bool>> expression = null);
-        Task<T> GetAsync<T>(Expression<Func<T, bool>> expression);
+        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> expression = null);
+        Task<T> GetAsync(Expression<Func<T, bool>> expression);
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookAndMovieMobile.Data.Concrete
+namespace BookAndMovieMobile.Data.Concrete.EfCore
 {
     public class BookAndMobileContext: DbContext
     {

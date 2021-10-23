@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookAndMovieMobile.Core\BookAndMovieMobile.Core.csproj" />
+  </ItemGroup>
+
 </Project>
