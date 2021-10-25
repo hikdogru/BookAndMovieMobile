@@ -14,7 +14,7 @@
             <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6" />
             <Button Text="Search"  Clicked="SearchBook" />
 
-            <ListView x:Name="bookList" RowHeight="300" >
+            <ListView x:Name="bookList" RowHeight="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 

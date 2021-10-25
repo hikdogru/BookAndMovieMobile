@@ -7,14 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAndMovieMobile.Android"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookAndMovieMobile", "BookAndMovieMobile\BookAndMovieMobile.csproj", "{9C1866A4-5ECE-4349-B036-11F4666FD167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAndMovieMobile.Business", "BookAndMovieMobile.Business\BookAndMovieMobile.Business.csproj", "{095B6210-CEAC-4B5C-8F28-3599E02C9358}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAndMovieMobile.Data", "BookAndMovieMobile.Data\BookAndMovieMobile.Data.csproj", "{418728B4-8547-4845-AC78-4B6F0A94A3CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAndMovieMobile.Core", "BookAndMovieMobile.Core\BookAndMovieMobile.Core.csproj", "{7B9502E8-7041-42F4-870F-9A4F65E5FDF0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAndMovieMobile.Entities", "BookAndMovieMobile.Entities\BookAndMovieMobile.Entities.csproj", "{C8265E1C-E0E5-4E19-84BB-DF05F819D3D2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,22 +25,6 @@ Global
 		{9C1866A4-5ECE-4349-B036-11F4666FD167}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C1866A4-5ECE-4349-B036-11F4666FD167}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C1866A4-5ECE-4349-B036-11F4666FD167}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{095B6210-CEAC-4B5C-8F28-3599E02C9358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{095B6210-CEAC-4B5C-8F28-3599E02C9358}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{095B6210-CEAC-4B5C-8F28-3599E02C9358}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{095B6210-CEAC-4B5C-8F28-3599E02C9358}.Release|Any CPU.Build.0 = Release|Any CPU
-		{418728B4-8547-4845-AC78-4B6F0A94A3CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{418728B4-8547-4845-AC78-4B6F0A94A3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{418728B4-8547-4845-AC78-4B6F0A94A3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{418728B4-8547-4845-AC78-4B6F0A94A3CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B9502E8-7041-42F4-870F-9A4F65E5FDF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B9502E8-7041-42F4-870F-9A4F65E5FDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B9502E8-7041-42F4-870F-9A4F65E5FDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B9502E8-7041-42F4-870F-9A4F65E5FDF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8265E1C-E0E5-4E19-84BB-DF05F819D3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8265E1C-E0E5-4E19-84BB-DF05F819D3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8265E1C-E0E5-4E19-84BB-DF05F819D3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8265E1C-E0E5-4E19-84BB-DF05F819D3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

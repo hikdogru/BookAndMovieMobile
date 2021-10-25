@@ -1,4 +1,5 @@
-﻿using BookAndMovieMobile.Model.Book;
+﻿using BookAndMovieMobile.Business.Abstract;
+using BookAndMovieMobile.Model.Book;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,12 @@ namespace BookAndMovieMobile.View.Pages
     public partial class BookSearch : ContentPage
     {
         private List<BookModel> _books;
+        private readonly IBookService _bookService;
 
         public BookSearch()
         {
             InitializeComponent();
         }
-
-       
 
         private void SearchBook(object sender, EventArgs e)
         {
@@ -30,6 +30,7 @@ namespace BookAndMovieMobile.View.Pages
             var books = model.GetBookFromGoogle(url: clientUrl);
             BookConfiguration(books: books);
             bookList.ItemsSource = _books.Where(x => x.SmallThumbnail != null);
+            bookList.ItemsSource = _books;
             txtSearchQuery.Text = "";
         }
 

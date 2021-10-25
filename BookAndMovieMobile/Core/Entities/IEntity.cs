@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookAndMovieMobile.Core.Entities
+namespace BooksAndMovies.Core.Entities
 {
     public interface IEntity
     {

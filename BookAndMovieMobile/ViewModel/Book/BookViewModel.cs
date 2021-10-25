@@ -1,4 +1,5 @@
-﻿using BookAndMovieMobile.Model.Book;
+﻿using BookAndMovieMobile.Business.Abstract;
+using BookAndMovieMobile.Model.Book;
 using BookAndMovieMobile.View.Pages;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,6 @@ namespace BookAndMovieMobile.ViewModel.Book
         private void RedirectToBookSearchPage(object obj)
         {
             Application.Current.MainPage.Navigation.PushModalAsync(new BookSearch(), true);
-
         }
 
         private void Search(object obj)

@@ -4,9 +4,10 @@
              x:Class="BookAndMovieMobile.View.Pages.User">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to User page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="txtEmail" Placeholder="Email"/>
+            <Entry x:Name="txtPassword" Placeholder="Password"/>
+            <Button x:Name="btnLogin" Text="Login" Clicked="Login"></Button>
+            <Label x:Name="lblMessage" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

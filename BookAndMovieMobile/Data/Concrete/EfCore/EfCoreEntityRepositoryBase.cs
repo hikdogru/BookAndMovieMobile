@@ -1,5 +1,6 @@
-﻿using BookAndMovieMobile.Core.Data;
-using BookAndMovieMobile.Core.Entities;
+﻿
+using BooksAndMovies.Core.Data;
+using BooksAndMovies.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

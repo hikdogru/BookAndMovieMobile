@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookAndMovieMobile.Business.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,6 @@ namespace BookAndMovieMobile.View.Pages
         public Book()
         {
             InitializeComponent();
-            
         }
     }
 }
