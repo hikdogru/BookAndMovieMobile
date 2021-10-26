@@ -68,5 +68,34 @@ namespace BookAndMovieMobile.Model.TMDB
             }
 
         }
+
+        public void PostContentToTMDB(string url, byte[] data)
+        {
+            var json = Encoding.UTF8.GetString(data);
+            var client = new RestApiModel(url: url, method: Method.POST);
+            var request = client.Request;
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            var response = client.GetRestResponse(request);
+
+        }
+
+        public void DeleteContentFromTMDB(string url)
+        {
+            var client = new RestApiModel(url: url, Method.DELETE);
+            var request = client.Request;
+            var response = client.GetRestResponse(request);
+        }
+
+        public void PostContentToTMDB(int medialistId, int mediaId, string mediaType)
+        {
+            string clientUrl = $"https://api.themoviedb.org/4/list/{medialistId}/items?api_key=ebd943da4f3d062ae4451758267b1ca9";
+            var request = new RestRequest(Method.POST);
+            string jsonContent = "{\"items\":[{\"media_type\":\""+ mediaType + "\",\"media_id\":" + mediaId + "}]}";
+            request.AddHeader("content-type", "application/json;charset=utf-8");
+            request.AddHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2MzUyNTI0MzEsImF1ZCI6ImViZDk0M2RhNGYzZDA2MmFlNDQ1MTc1ODI2N2IxY2E5IiwianRpIjoiMzY1NzY0OSIsInNjb3BlcyI6WyJhcGlfcmVhZCIsImFwaV93cml0ZSJdLCJ2ZXJzaW9uIjoxLCJzdWIiOiI2MTQ1ZDA5MjA0ODYzODAwMmNlNTUzZDcifQ.XLKFsZFe3sqtrqQWU3tbZQgHWbZniBRT2vLq2A__XVM");
+            request.AddParameter("application/json;charset=utf-8", jsonContent, ParameterType.RequestBody);
+            var client = new RestApiModel(url: clientUrl, request: request);
+            IRestResponse response = client.GetRestResponse(request: client.Request);
+        }
     }
 }

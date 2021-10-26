@@ -1,5 +1,4 @@
-﻿using BookAndMovieMobile.Business.Abstract;
-using BookAndMovieMobile.Model.Book;
+﻿using BookAndMovieMobile.Model.Book;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +14,6 @@ namespace BookAndMovieMobile.View.Pages
     public partial class BookSearch : ContentPage
     {
         private List<BookModel> _books;
-        private readonly IBookService _bookService;
 
         public BookSearch()
         {

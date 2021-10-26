@@ -31,5 +31,13 @@ namespace BookAndMovieMobile.View.Pages
             tvShowList.ItemsSource = tvshows;
             txtSearchQuery.Text = "";
         }
+
+        private void AddTVShowToWishlist(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        
     }
 }

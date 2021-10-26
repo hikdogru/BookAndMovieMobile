@@ -21,6 +21,13 @@ namespace BookAndMovieMobile.Model.RestApi
             GetRestClient();
         }
 
+        public RestApiModel(string url, RestRequest request)
+        {
+            _url = url;
+            Request = request;
+            GetRestClient();
+        }
+
         private void GetRestClient()
         {
             Client = new RestClient(_url);
@@ -30,7 +37,10 @@ namespace BookAndMovieMobile.Model.RestApi
 
         public void GetRestRequest()
         {
-            Request = new RestRequest(_method);
+            if(Request == null)
+            {
+                Request = new RestRequest(method: _method);
+            }
         }
 
         public IRestResponse GetRestResponse()

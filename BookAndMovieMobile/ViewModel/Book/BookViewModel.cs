@@ -1,5 +1,4 @@
-﻿using BookAndMovieMobile.Business.Abstract;
-using BookAndMovieMobile.Model.Book;
+﻿using BookAndMovieMobile.Model.Book;
 using BookAndMovieMobile.View.Pages;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@
         <StackLayout>
             <Entry x:Name="txtEmail" Placeholder="Email"/>
             <Entry x:Name="txtPassword" Placeholder="Password"/>
-            <Button x:Name="btnLogin" Text="Login" Clicked="Login"></Button>
+            <Button x:Name="btnLogin" Text="Login"></Button>
             <Label x:Name="lblMessage" />
         </StackLayout>
     </ContentPage.Content>

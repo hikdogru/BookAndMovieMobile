@@ -1,6 +1,7 @@
 ﻿using BookAndMovieMobile.Model.Movie;
 using BookAndMovieMobile.Model.TMDB;
 using BookAndMovieMobile.View.Pages;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,8 +20,11 @@ namespace BookAndMovieMobile.ViewModel.Movie
         public ICommand MovieDetailCommand => new Command(MovieDetail);
         public ICommand MovieSearchCommand => new Command(RedirectToMovieSearchPage);
         public ICommand SearchCommand => new Command(Search);
+        public ICommand MovieWishListCommand => new Command(AddMovieToWishlist);
 
+        public ICommand MovieWatchedListCommand => new Command(AddMovieToWatchedList);
 
+        
 
         public MovieViewModel()
         {
@@ -53,6 +57,22 @@ namespace BookAndMovieMobile.ViewModel.Movie
             string clientUrl = _rootUrl + $"search/movie?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US&query={query}";
             var movies = new TMDBModel().GetMoviesFromTMDB(url: clientUrl);
             Application.Current.MainPage.Navigation.PushModalAsync(new MovieList(movies: movies), true);
+        }
+
+        private void AddMovieToWishlist(object obj)
+        {
+            var movie = ((MovieModel)obj);
+            int id = movie.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111914, mediaId: id, "movie");
+        }
+
+        private void AddMovieToWatchedList(object obj)
+        {
+            var movie = ((MovieModel)obj);
+            int id = movie.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111917, mediaId: id, "movie");
         }
 
 
