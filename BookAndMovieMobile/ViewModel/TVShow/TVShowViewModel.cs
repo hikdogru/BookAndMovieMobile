@@ -42,7 +42,9 @@ namespace BookAndMovieMobile.ViewModel.TVShow
 
         public TVShowViewModel()
         {
-            GetPopularTVShows();
+            //GetPopularTVShows();
+            
+
         }
 
         private void GetPopularTVShows()
@@ -109,27 +111,28 @@ namespace BookAndMovieMobile.ViewModel.TVShow
 
         private void GetTVShowWishlist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111981?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var tvshowWishlist = model.GetTVShowsFromTMDB(url: clientUrl);
+            var tvshowWishlist = GetTVShowFromTMDB(medialistId: 7111981);
             Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshowWishlist), true);
         }
 
         private void GetTVShowWatchedlist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111916?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var tvshowWishlist = model.GetTVShowsFromTMDB(url: clientUrl);
+            var tvshowWishlist = GetTVShowFromTMDB(medialistId: 7111916);
             Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshowWishlist), true);
         }
 
         private void GetTVShowFavouritelist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111919?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var tvshowFavouritelist = model.GetTVShowsFromTMDB(url: clientUrl);
+            var tvshowFavouritelist = GetTVShowFromTMDB(medialistId: 7111919);
             Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshowFavouritelist), true);
+        }
 
+        private List<TVShowModel> GetTVShowFromTMDB(int medialistId)
+        {
+            string clientUrl = _rootUrl + $"list/{medialistId}?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
+            var model = new TMDBModel();
+            var tvshows = model.GetTVShowsFromTMDB(url: clientUrl);
+            return tvshows;
         }
 
         private void DeleteTVShowWishlist(object obj)
@@ -138,6 +141,8 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             int id = tvShow.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111981, mediaId: id, "tv", method: Method.DELETE);
+            var tvshows = GetTVShowFromTMDB(7111981);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshows), true);
         }
 
         private void DeleteTVShowWatchedlist(object obj)
@@ -146,6 +151,9 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             int id = tvShow.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv", method: Method.DELETE);
+            var tvshows = GetTVShowFromTMDB(7111916);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshows), true);
+
         }
 
         private void DeleteTVShowFavouritelist(object obj)
@@ -154,6 +162,8 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             int id = tvShow.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111919, mediaId: id, "tv", method: Method.DELETE);
+            var tvshows = GetTVShowFromTMDB(7111919);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshows), true);
         }
     }
 }

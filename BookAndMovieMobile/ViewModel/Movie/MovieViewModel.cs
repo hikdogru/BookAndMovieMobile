@@ -102,25 +102,27 @@ namespace BookAndMovieMobile.ViewModel.Movie
 
         private void GetMovieWishlist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111914?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var movieWishlist = model.GetMoviesFromTMDB(url: clientUrl);
+            var movieWishlist = GetMovieFromTMDB(medialistId: 7111914);
             Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movieWishlist), true);
         }
 
         private void GetMovieWatchedlist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111917?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var movieWatchedlist = model.GetMoviesFromTMDB(url: clientUrl);
+            var movieWatchedlist = GetMovieFromTMDB(medialistId: 7111917);
             Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movieWatchedlist), true);
         }
         private void GetMovieFavouritelist(object obj)
         {
-            string clientUrl = _rootUrl + "list/7111920?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
-            var model = new TMDBModel();
-            var movieFavouritelist = model.GetMoviesFromTMDB(url: clientUrl);
+            var movieFavouritelist = GetMovieFromTMDB(medialistId: 7111920);
             Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movieFavouritelist), true);
+        }
+
+        private List<MovieModel> GetMovieFromTMDB(int medialistId)
+        {
+            string clientUrl = _rootUrl + $"list/{medialistId}?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
+            var model = new TMDBModel();
+            var movies = model.GetMoviesFromTMDB(url: clientUrl);
+            return movies;
         }
 
         private void DeleteMovieWishlist(object obj)
@@ -129,14 +131,18 @@ namespace BookAndMovieMobile.ViewModel.Movie
             int id = movie.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111914, mediaId: id, "movie", method: Method.DELETE);
+            var movieWishlist = GetMovieFromTMDB(medialistId: 7111914);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movieWishlist), true);
         }
-        
+
         private void DeleteMovieWatchedlist(object obj)
         {
             var movie = ((MovieModel)obj);
             int id = movie.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111917, mediaId: id, "movie", method: Method.DELETE);
+            var movieWatchedlist = GetMovieFromTMDB(medialistId: 7111917);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movieWatchedlist), true);
         }
 
         private void DeleteMovieFavouritelist(object obj)
@@ -145,6 +151,8 @@ namespace BookAndMovieMobile.ViewModel.Movie
             int id = movie.Id;
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111920, mediaId: id, "movie", method: Method.DELETE);
+            var movieFavouritelist = GetMovieFromTMDB(medialistId: 7111920);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movieFavouritelist), true);
         }
 
     }
