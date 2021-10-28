@@ -26,31 +26,32 @@
 
                             <StackLayout>
                                 <Image x:Name="tvShowImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                                <Label Text="{Binding OriginalName}" FontSize="Large" HorizontalOptions="Center"></Label>
-                                <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding FirstAirDate}" FontSize="Medium" HorizontalOptions="Center"></Label>
+
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Image Source="star.png" />
-                                <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                <Label Text="{Binding VoteAverage}" FontSize="Medium">
                                 </Label>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Button Text="Add to Wishlist"
-                                        FontFamily="Medium"
+                                        FontSize="Small"
+                                        WidthRequest="175"
                                         BackgroundColor="#0d6efd"
-                                        WidthRequest="100"
                                         TextColor="White"
-                                         Command="{Binding Path=BindingContext.TVShowWishListCommand, Source={x:Reference tvShowList}}"
+                                         Command="{Binding Path=BindingContext.AddTVShowWishListCommand, Source={x:Reference tvShowList}}"
                                          CommandParameter="{Binding .}"/>
                                         
                                          <Button Text="Add to Watchedlist"
-                                        FontFamily="Medium"
+                                        FontSize="Small"
                                         BackgroundColor="#198754"
-                                        WidthRequest="100"
+                                        WidthRequest="175"
                                         TextColor="White"
-                                         Command="{Binding Path=BindingContext.TVShowWatchedListCommand, Source={x:Reference tvShowList}}"
+                                         Command="{Binding Path=BindingContext.AddTVShowWatchedListCommand, Source={x:Reference tvShowList}}"
                                          CommandParameter="{Binding .}" />
                                         
                                 <ImageButton Source="detail.png"

@@ -8,5 +8,6 @@ namespace BookAndMovieMobile.Model.Movie
     public class MovieJsonModel : JsonModel
     {
         public List<MovieModel> Results { get; set; }
+        public List<MovieModel> Items { get; set; }
     }
 }

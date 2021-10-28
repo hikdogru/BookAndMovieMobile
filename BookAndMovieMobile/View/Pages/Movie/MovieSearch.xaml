@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:movie="clr-namespace:BookAndMovieMobile.ViewModel.Movie"
+             x:Class="BookAndMovieMobile.View.Pages.MovieSearch">
+
+
+
+    <ContentPage.BindingContext>
+        <movie:MovieViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"/>
+            <Button Text="Search"  Clicked="SearchMovie"/>
+
+
+            <ListView x:Name="movieList" RowHeight="400">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <StackLayout>
+
+                                <StackLayout>
+                                    <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
+                                    <Label  Text="{Binding ReleaseDate}"  FontSize="Medium" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Title}" FontSize="Medium" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Image Source="star.png" />
+                                    <Label Text="{Binding VoteAverage}" FontSize="Medium" >
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button Text="Add to Wishlist"
+                                        FontSize="Small"
+                                        BackgroundColor="#0d6efd"
+                                        WidthRequest="175"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.MovieWishListCommand, Source={x:Reference movieList}}"
+                                         CommandParameter="{Binding .}" />
+
+                                    <Button Text="Add to Watchedlist"
+                                        FontSize="Small"
+                                        BackgroundColor="#198754"
+                                        WidthRequest="175"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.MovieWatchedListCommand, Source={x:Reference movieList}}"
+                                         CommandParameter="{Binding .}" />
+
+                                    <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference movieList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

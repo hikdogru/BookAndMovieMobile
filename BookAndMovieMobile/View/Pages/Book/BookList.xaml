@@ -4,7 +4,7 @@
              x:Class="BookAndMovieMobile.View.Pages.BookList">
     <ContentPage.Content>
 
-        <ListView x:Name="bookList" ItemsSource="{Binding Books}" RowHeight="300" >
+        <ListView x:Name="bookList" ItemsSource="{Binding Books}" RowHeight="350" >
             <ListView.ItemTemplate>
                 <DataTemplate>
 

@@ -2,20 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:movie="clr-namespace:BookAndMovieMobile.ViewModel.Movie"
-             x:Class="BookAndMovieMobile.View.Pages.MovieSearch">
-
-
+             x:Class="BookAndMovieMobile.View.Pages.MovieWishlist">
 
     <ContentPage.BindingContext>
-        <movie:MovieViewModel />
+        <movie:MovieViewModel/>
     </ContentPage.BindingContext>
+
 
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6"/>
-            <Button Text="Search"  Clicked="SearchMovie"/>
-
-
             <ListView x:Name="movieList" RowHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -26,32 +21,32 @@
 
                                 <StackLayout>
                                     <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                                    <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
-                                    <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Title}" FontSize="Medium" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding ReleaseDate}" FontSize="Medium" HorizontalOptions="Center"></Label>
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image Source="star.png" />
-                                    <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                    <Label Text="{Binding VoteAverage}" FontSize="Medium">
                                     </Label>
 
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                    <Button Text="Add to Wishlist"
-                                        FontFamily="Medium"
+                                    <Button  Text="Move to Watchedlist"
+                                        FontSize="Small"
                                         BackgroundColor="#0d6efd"
-                                        WidthRequest="100"
+                                        WidthRequest="200"
                                         TextColor="White"
-                                         Command="{Binding Path=BindingContext.MovieWishListCommand, Source={x:Reference movieList}}"
+                                         Command="{Binding Path=BindingContext.MoveMovieWatchedlistCommand, Source={x:Reference movieList}}"
                                          CommandParameter="{Binding .}" />
 
-                                    <Button Text="Add to Watchedlist"
-                                        FontFamily="Medium"
-                                        BackgroundColor="#198754"
+                                    <Button Text="Delete"
+                                        FontSize="Small"
+                                        BackgroundColor="#dc3545"
                                         WidthRequest="100"
                                         TextColor="White"
-                                         Command="{Binding Path=BindingContext.MovieWatchedListCommand, Source={x:Reference movieList}}"
+                                         Command="{Binding Path=BindingContext.DeleteMovieWishlistCommand, Source={x:Reference movieList}}"
                                          CommandParameter="{Binding .}" />
 
                                     <ImageButton Source="detail.png"
@@ -69,7 +64,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11,9 +11,9 @@
 
 
     <StackLayout>
-        <Button Text="Wishlist" BackgroundColor="Beige"/>
-        <Button Text="Watchedlist" BackgroundColor="Beige"/>
-        <Button Text="Favouritelist" BackgroundColor="Beige"/>
+        <Button Text="Wishlist" BackgroundColor="Beige" Command="{Binding GetMovieWishlistCommand}"/>
+        <Button Text="Watchedlist" BackgroundColor="Beige" Command="{Binding GetMovieWatchedlistCommand}"/>
+        <Button Text="Favouritelist" BackgroundColor="Beige" Command="{Binding GetMovieFavouritelistCommand}"/>
         <Button Text="Search" BackgroundColor="Beige" Command="{Binding MovieSearchCommand}" />
     </StackLayout>
 </ContentPage>

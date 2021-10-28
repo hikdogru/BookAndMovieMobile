@@ -24,13 +24,13 @@ namespace BookAndMovieMobile.Model.TMDB
         public List<TVShowModel> GetTVShowsFromTMDB(string url)
         {
             GetContentFromTMDB(url: url, modelNo: 1);
-            return TVShowJsonModel.Results;
+            return TVShowJsonModel.Results ?? TVShowJsonModel.Items;
         }
 
         public List<MovieModel> GetMoviesFromTMDB(string url)
         {
             GetContentFromTMDB(url: url, modelNo: 2);
-            return MovieJsonModel.Results;
+            return MovieJsonModel.Results ?? MovieJsonModel.Items;
         }
 
         public MovieModel GetMovieFromTMDB(string url)
@@ -86,11 +86,21 @@ namespace BookAndMovieMobile.Model.TMDB
             var response = client.GetRestResponse(request);
         }
 
-        public void PostContentToTMDB(int medialistId, int mediaId, string mediaType)
+        public void RemoveContentFromTMDB(int medialistId, int mediaId)
+        {
+            string clientUrl = $"https://api.themoviedb.org/3/list/{medialistId}/remove_item?api_key=ebd943da4f3d062ae4451758267b1ca9";
+            var request = new RestRequest(Method.POST);
+            string jsonContent = "{\"items\":[{\"media_id\":" + mediaId + "}]}";
+            request.AddHeader("content-type", "application/json;charset=utf-8");
+            var client = new RestApiModel(url: clientUrl, request: request);
+            IRestResponse response = client.GetRestResponse(request: client.Request);
+        }
+
+        public void PostContentToTMDB(int medialistId, int mediaId, string mediaType, Method method)
         {
             string clientUrl = $"https://api.themoviedb.org/4/list/{medialistId}/items?api_key=ebd943da4f3d062ae4451758267b1ca9";
-            var request = new RestRequest(Method.POST);
-            string jsonContent = "{\"items\":[{\"media_type\":\""+ mediaType + "\",\"media_id\":" + mediaId + "}]}";
+            var request = new RestRequest(method);
+            string jsonContent = "{\"items\":[{\"media_type\":\"" + mediaType + "\",\"media_id\":" + mediaId + "}]}";
             request.AddHeader("content-type", "application/json;charset=utf-8");
             request.AddHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2MzUyNTI0MzEsImF1ZCI6ImViZDk0M2RhNGYzZDA2MmFlNDQ1MTc1ODI2N2IxY2E5IiwianRpIjoiMzY1NzY0OSIsInNjb3BlcyI6WyJhcGlfcmVhZCIsImFwaV93cml0ZSJdLCJ2ZXJzaW9uIjoxLCJzdWIiOiI2MTQ1ZDA5MjA0ODYzODAwMmNlNTUzZDcifQ.XLKFsZFe3sqtrqQWU3tbZQgHWbZniBRT2vLq2A__XVM");
             request.AddParameter("application/json;charset=utf-8", jsonContent, ParameterType.RequestBody);

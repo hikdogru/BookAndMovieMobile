@@ -1,27 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookAndMovieMobile.View.Pages.MovieList">
+             x:Class="BookAndMovieMobile.View.Pages.TVShowList">
    
-    
     
     
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="movieList" RowHeight="600">
+            <ListView x:Name="tvShowList" RowHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
                         <ViewCell>
-                            
                             <StackLayout>
 
                                 <StackLayout>
-                                    <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                                    <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
-                                    <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Image x:Name="tvShowImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
+                                    <Label Text="{Binding OriginalName}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="Center"></Label>
                                 </StackLayout>
-                               
+
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image Source="star.png" />
                                     <Label Text="{Binding VoteAverage}" FontSize="Large">
@@ -33,7 +31,7 @@
                                     <ImageButton Source="detail.png"
                                                  BackgroundColor="Transparent"
                                                  x:Name="btnDetail"
-                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference movieList}}"
+                                                 Command="{Binding Path=BindingContext.TVShowDetailCommand, Source={x:Reference tvShowList}}"
                                                  CommandParameter="{Binding .}"
                                                  ></ImageButton>
                                 </StackLayout>

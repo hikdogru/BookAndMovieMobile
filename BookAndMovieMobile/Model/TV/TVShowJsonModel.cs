@@ -8,5 +8,6 @@ namespace BookAndMovieMobile.Model.TV
     public class TVShowJsonModel : JsonModel
     {
         public List<TVShowModel> Results { get; set; }
+        public List<TVShowModel> Items { get; set; }
     }
 }

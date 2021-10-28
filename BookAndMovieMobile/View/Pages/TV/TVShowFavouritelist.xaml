@@ -1,30 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookAndMovieMobile.View.Pages.TVShowList">
+             xmlns:tvShow="clr-namespace:BookAndMovieMobile.ViewModel.TVShow"
+             x:Class="BookAndMovieMobile.View.Pages.TV.TVShowFavouritelist">
+
+
+    <ContentPage.BindingContext>
+        <tvShow:TVShowViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="tvShowList" RowHeight="600">
+            <ListView x:Name="tvShowList" RowHeight="400">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-
                         <ViewCell>
                             <StackLayout>
 
                                 <StackLayout>
                                     <Image x:Name="tvShowImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                                    <Label Text="{Binding OriginalName}" FontSize="Large" HorizontalOptions="Center"></Label>
-                                    <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding FirstAirDate}" FontSize="Medium" HorizontalOptions="Center"></Label>
+
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image Source="star.png" />
-                                    <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                    <Label Text="{Binding VoteAverage}" FontSize="Medium">
                                     </Label>
 
                                 </StackLayout>
 
-                                <StackLayout HorizontalOptions="Center">
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                   
+                                    <Button Text="Delete"
+                                        FontSize="Small"
+                                        BackgroundColor="#dc3545"
+                                        WidthRequest="100"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.DeleteTVShowFavouritelistCommand, Source={x:Reference tvShowList}}"
+                                         CommandParameter="{Binding .}" />
+                                    
                                     <ImageButton Source="detail.png"
                                                  BackgroundColor="Transparent"
                                                  x:Name="btnDetail"

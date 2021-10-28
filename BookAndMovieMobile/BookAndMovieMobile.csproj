@@ -19,43 +19,61 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\Pages\Book.xaml">
+    <EmbeddedResource Update="View\Pages\Book\Book.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\BookDetail.xaml">
+    <EmbeddedResource Update="View\Pages\Book\BookDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\BookList.xaml">
+    <EmbeddedResource Update="View\Pages\Book\BookList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\BookSearch.xaml">
+    <EmbeddedResource Update="View\Pages\Book\BookSearch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Pages\Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\Movie.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\Movie.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\MovieDetail.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\MovieList.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieFavouritelist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\MovieSearch.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\TVShow.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieSearch.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\TVShowDetail.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieWatchedlist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\TVShowList.xaml">
+    <EmbeddedResource Update="View\Pages\Movie\MovieWishlist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\TVShowSearch.xaml">
+    <EmbeddedResource Update="View\Pages\TV\TVShow.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowFavouritelist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowSearch.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowWatchedlist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\TV\TVShowWishlist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Pages\User.xaml">

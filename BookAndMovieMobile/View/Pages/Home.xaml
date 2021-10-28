@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <ListView x:Name="MovieList" ItemsSource="{Binding Movies}" RowHeight="375" >
+        <ListView x:Name="movieList" ItemsSource="{Binding Movies}" RowHeight="400" >
             <ListView.ItemTemplate>
                 <DataTemplate>
 
@@ -20,24 +20,41 @@
 
                             <StackLayout>
                                 <Image x:Name="movieImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
-                                <Label Text="{Binding OriginalTitle}" FontSize="Large" HorizontalOptions="Center"></Label>
-                                <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Title}" FontSize="Medium" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding ReleaseDate}" FontSize="Medium" HorizontalOptions="Center"></Label>
+
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Image Source="star.png" />
-                                <Label Text="{Binding VoteAverage}" FontSize="Large">
+                                <Label Text="{Binding VoteAverage}" FontSize="Medium">
                                 </Label>
 
                             </StackLayout>
 
-                            <StackLayout HorizontalOptions="Center">
+                            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                <Button Text="Add to Wishlist"
+                                        FontSize="Small"
+                                        WidthRequest="175"
+                                        BackgroundColor="#0d6efd"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.MovieWishListCommand, Source={x:Reference movieList}}"
+                                         CommandParameter="{Binding .}"/>
+
+                                <Button Text="Add to Watchedlist"
+                                        FontSize="Small"
+                                        BackgroundColor="#198754"
+                                        WidthRequest="175"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.MovieWatchedListCommand, Source={x:Reference movieList}}"
+                                         CommandParameter="{Binding .}" />
+                                
+                                
                                 <ImageButton Source="detail.png"
                                                  BackgroundColor="Transparent"
                                                  x:Name="btnDetail"
-                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference MovieList}}"
-                                                 CommandParameter="{Binding .}"
-                                                 ></ImageButton>
+                                                 Command="{Binding Path=BindingContext.MovieDetailCommand, Source={x:Reference movieList}}"
+                                                 CommandParameter="{Binding .}" />
                             </StackLayout>
 
                         </StackLayout>

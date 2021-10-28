@@ -13,10 +13,16 @@ namespace BookAndMovieMobile.View.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieList : ContentPage
     {
-        public MovieList(List<MovieModel> movies)
+        public MovieList(List<MovieModel> movies, string movielistTypeName)
         {
             InitializeComponent();
+            GetMovies(movies: movies, movielistTypeName: movielistTypeName);
+        }
+
+        private void GetMovies(List<MovieModel> movies, string movielistTypeName)
+        {
             movieList.ItemsSource = movies;
+            
         }
     }
 }

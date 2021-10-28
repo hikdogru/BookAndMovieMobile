@@ -1,6 +1,7 @@
 ﻿using BookAndMovieMobile.Model.Media;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace BookAndMovieMobile.Model.TV
@@ -8,6 +9,7 @@ namespace BookAndMovieMobile.Model.TV
     public class TVShowModel : MediaModel
     {
         private string _name;
+        private string _date;
 
         public string Name
         {
@@ -15,6 +17,10 @@ namespace BookAndMovieMobile.Model.TV
             set => _name = value;
         }
         public string OriginalName { get; set; }
-        public string FirstAirDate { get; set; }
+        public string FirstAirDate
+        {
+            get => _date;
+            set => _date = value.Length > 4 ? DateTime.Parse(value, new CultureInfo("en-US")).Year.ToString() : value.ToString();
+        }
     }
 }

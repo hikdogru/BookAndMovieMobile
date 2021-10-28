@@ -1,6 +1,7 @@
 ﻿using BookAndMovieMobile.Model.TMDB;
 using BookAndMovieMobile.Model.TV;
 using BookAndMovieMobile.View.Pages;
+using BookAndMovieMobile.View.Pages.TV;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -20,10 +21,22 @@ namespace BookAndMovieMobile.ViewModel.TVShow
         public ICommand TVShowDetailCommand => new Command(TVShowDetail);
         public ICommand TVShowSearchCommand => new Command(RedirectToTVShowSearchPage);
         public ICommand SearchCommand => new Command(Search);
-        public ICommand TVShowWishListCommand => new Command(AddTVShowToWishlist);
-        public ICommand TVShowWatchedListCommand => new Command(AddTVShowToWatchedList);
+        public ICommand AddTVShowWishListCommand => new Command(AddTVShowToWishlist);
+        public ICommand AddTVShowWatchedListCommand => new Command(AddTVShowToWatchedList);
+        public ICommand AddTVShowFavouritelistCommand => new Command(AddTVShowFavouritelist);
+        public ICommand MoveTVShowWatchedlistCommand => new Command(MoveTVShowWatchedlist);
 
-        
+
+        public ICommand GetTVShowWishlistCommand => new Command(GetTVShowWishlist);
+        public ICommand DeleteTVShowWishlistCommand => new Command(DeleteTVShowWishlist);
+
+        public ICommand GetTVShowWatchedlistCommand => new Command(GetTVShowWatchedlist);
+        public ICommand DeleteTVShowWatchedlistCommand => new Command(DeleteTVShowWatchedlist);
+        public ICommand GetTVShowFavouritelistCommand => new Command(GetTVShowFavouritelist);
+        public ICommand DeleteTVShowFavouritelistCommand => new Command(DeleteTVShowFavouritelist);
+
+
+
 
         public string SearchQuery { get; set; }
 
@@ -65,7 +78,7 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             var tvShow = ((TVShowModel)obj);
             int id = tvShow.Id;
             var model = new TMDBModel();
-            model.PostContentToTMDB(medialistId: 7111910, mediaId: id, "tv");
+            model.PostContentToTMDB(medialistId: 7111981, mediaId: id, "tv", method: Method.POST);
 
         }
 
@@ -74,7 +87,73 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             var tvShow = ((TVShowModel)obj);
             int id = tvShow.Id;
             var model = new TMDBModel();
-            model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv");
+            model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv", method: Method.POST);
+        }
+
+        private void AddTVShowFavouritelist(object obj)
+        {
+            var tvShow = ((TVShowModel)obj);
+            int id = tvShow.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111919, mediaId: id, "tv", method: Method.POST);
+        }
+
+        private void MoveTVShowWatchedlist(object obj)
+        {
+            var tvShow = ((TVShowModel)obj);
+            int id = tvShow.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111981, mediaId: id, "tv", method: Method.DELETE);
+            model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv", method: Method.POST);
+        }
+
+        private void GetTVShowWishlist(object obj)
+        {
+            string clientUrl = _rootUrl + "list/7111981?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
+            var model = new TMDBModel();
+            var tvshowWishlist = model.GetTVShowsFromTMDB(url: clientUrl);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshowWishlist), true);
+        }
+
+        private void GetTVShowWatchedlist(object obj)
+        {
+            string clientUrl = _rootUrl + "list/7111916?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
+            var model = new TMDBModel();
+            var tvshowWishlist = model.GetTVShowsFromTMDB(url: clientUrl);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshowWishlist), true);
+        }
+
+        private void GetTVShowFavouritelist(object obj)
+        {
+            string clientUrl = _rootUrl + "list/7111919?api_key=ebd943da4f3d062ae4451758267b1ca9&language=en-US";
+            var model = new TMDBModel();
+            var tvshowFavouritelist = model.GetTVShowsFromTMDB(url: clientUrl);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshowFavouritelist), true);
+
+        }
+
+        private void DeleteTVShowWishlist(object obj)
+        {
+            var tvShow = ((TVShowModel)obj);
+            int id = tvShow.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111981, mediaId: id, "tv", method: Method.DELETE);
+        }
+
+        private void DeleteTVShowWatchedlist(object obj)
+        {
+            var tvShow = ((TVShowModel)obj);
+            int id = tvShow.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv", method: Method.DELETE);
+        }
+
+        private void DeleteTVShowFavouritelist(object obj)
+        {
+            var tvShow = ((TVShowModel)obj);
+            int id = tvShow.Id;
+            var model = new TMDBModel();
+            model.PostContentToTMDB(medialistId: 7111919, mediaId: id, "tv", method: Method.DELETE);
         }
     }
 }
