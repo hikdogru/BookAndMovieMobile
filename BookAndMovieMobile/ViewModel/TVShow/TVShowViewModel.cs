@@ -35,7 +35,7 @@ namespace BookAndMovieMobile.ViewModel.TVShow
         public ICommand GetTVShowFavouritelistCommand => new Command(GetTVShowFavouritelist);
         public ICommand DeleteTVShowFavouritelistCommand => new Command(DeleteTVShowFavouritelist);
 
-
+        
 
 
         public string SearchQuery { get; set; }
@@ -43,7 +43,6 @@ namespace BookAndMovieMobile.ViewModel.TVShow
         public TVShowViewModel()
         {
             //GetPopularTVShows();
-            
 
         }
 
@@ -112,19 +111,19 @@ namespace BookAndMovieMobile.ViewModel.TVShow
         private void GetTVShowWishlist(object obj)
         {
             var tvshowWishlist = GetTVShowFromTMDB(medialistId: 7111981);
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshowWishlist), true);
+            RedirectToTVShowWishlistPage(tvshows: tvshowWishlist);
         }
 
         private void GetTVShowWatchedlist(object obj)
         {
-            var tvshowWishlist = GetTVShowFromTMDB(medialistId: 7111916);
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshowWishlist), true);
+            var tvshowWatchedlist = GetTVShowFromTMDB(medialistId: 7111916);
+            RedirectToTVShowWatchedlistPage(tvshows: tvshowWatchedlist);
         }
 
         private void GetTVShowFavouritelist(object obj)
         {
             var tvshowFavouritelist = GetTVShowFromTMDB(medialistId: 7111919);
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshowFavouritelist), true);
+            RedirectToTVShowFavouritelistPage(tvshows: tvshowFavouritelist);
         }
 
         private List<TVShowModel> GetTVShowFromTMDB(int medialistId)
@@ -142,7 +141,7 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111981, mediaId: id, "tv", method: Method.DELETE);
             var tvshows = GetTVShowFromTMDB(7111981);
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshows), true);
+            RedirectToTVShowWishlistPage(tvshows: tvshows);
         }
 
         private void DeleteTVShowWatchedlist(object obj)
@@ -152,8 +151,7 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111916, mediaId: id, "tv", method: Method.DELETE);
             var tvshows = GetTVShowFromTMDB(7111916);
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshows), true);
-
+            RedirectToTVShowWatchedlistPage(tvshows: tvshows);
         }
 
         private void DeleteTVShowFavouritelist(object obj)
@@ -163,6 +161,24 @@ namespace BookAndMovieMobile.ViewModel.TVShow
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111919, mediaId: id, "tv", method: Method.DELETE);
             var tvshows = GetTVShowFromTMDB(7111919);
+            RedirectToTVShowFavouritelistPage(tvshows: tvshows);
+        }
+
+        private static void RedirectToTVShowWishlistPage(List<TVShowModel> tvshows)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshows), true);
+        }
+
+        private static void RedirectToTVShowWatchedlistPage(List<TVShowModel> tvshows)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshows), true);
+        }
+
+        private static void RedirectToTVShowFavouritelistPage(List<TVShowModel> tvshows)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshows), true);
         }
     }

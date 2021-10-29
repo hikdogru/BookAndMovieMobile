@@ -17,7 +17,6 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-
                                 <StackLayout>
                                     <Image x:Name="tvShowImage" Source="{Binding PosterPath}" HorizontalOptions="Center" Margin="20"></Image>
                                     <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Center"></Label>

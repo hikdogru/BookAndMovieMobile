@@ -103,18 +103,19 @@ namespace BookAndMovieMobile.ViewModel.Movie
         private void GetMovieWishlist(object obj)
         {
             var movieWishlist = GetMovieFromTMDB(medialistId: 7111914);
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movieWishlist), true);
+            RedirectToMovieWishlistPage(movies: movieWishlist);
         }
 
         private void GetMovieWatchedlist(object obj)
         {
             var movieWatchedlist = GetMovieFromTMDB(medialistId: 7111917);
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movieWatchedlist), true);
+            RedirectToMovieWatchedlistPage(movies: movieWatchedlist);
+
         }
         private void GetMovieFavouritelist(object obj)
         {
             var movieFavouritelist = GetMovieFromTMDB(medialistId: 7111920);
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movieFavouritelist), true);
+            RedirectToMovieFavouritelistPage(movies: movieFavouritelist);
         }
 
         private List<MovieModel> GetMovieFromTMDB(int medialistId)
@@ -142,7 +143,7 @@ namespace BookAndMovieMobile.ViewModel.Movie
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111917, mediaId: id, "movie", method: Method.DELETE);
             var movieWatchedlist = GetMovieFromTMDB(medialistId: 7111917);
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movieWatchedlist), true);
+            RedirectToMovieWatchedlistPage(movies: movieWatchedlist);
         }
 
         private void DeleteMovieFavouritelist(object obj)
@@ -152,7 +153,25 @@ namespace BookAndMovieMobile.ViewModel.Movie
             var model = new TMDBModel();
             model.PostContentToTMDB(medialistId: 7111920, mediaId: id, "movie", method: Method.DELETE);
             var movieFavouritelist = GetMovieFromTMDB(medialistId: 7111920);
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movieFavouritelist), true);
+            RedirectToMovieFavouritelistPage(movies: movieFavouritelist);
+        }
+
+        private static void RedirectToMovieWishlistPage(List<MovieModel> movies)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movies), true);
+        }
+
+        private static void RedirectToMovieWatchedlistPage(List<MovieModel> movies)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movies), true);
+        }
+
+        private static void RedirectToMovieFavouritelistPage(List<MovieModel> movies)
+        {
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movies), true);
         }
 
     }
