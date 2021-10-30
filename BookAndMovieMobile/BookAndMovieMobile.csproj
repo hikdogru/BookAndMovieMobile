@@ -19,16 +19,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\Pages\Book\Book.xaml">
+    <EmbeddedResource Update="View\Pages\BookPages\Book.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\Book\BookDetail.xaml">
+    <EmbeddedResource Update="View\Pages\BookPages\BookDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\Book\BookList.xaml">
+    <EmbeddedResource Update="View\Pages\BookPages\BookFavouritelist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Pages\Book\BookSearch.xaml">
+    <EmbeddedResource Update="View\Pages\BookPages\BookFinishedlist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\BookPages\BookList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\BookPages\BookSearch.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Pages\BookPages\BookWishlist.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Pages\Home.xaml">

@@ -5,18 +5,13 @@
              x:Class="BookAndMovieMobile.View.Pages.Book">
 
     <ContentPage.BindingContext>
-        <book:BookViewModel/>
+        <book:BookViewModel />
     </ContentPage.BindingContext>
 
-
-   
-
-
-
     <StackLayout>
-        <Button Text="Wishlist" BackgroundColor="Beige"/>
-        <Button Text="Watchedlist" BackgroundColor="Beige"/>
-        <Button Text="Favouritelist" BackgroundColor="Beige"/>
+        <Button Text="Wishlist" BackgroundColor="Beige"  Command="{Binding GetWishlistCommand}"/>
+        <Button Text="Finishedlist" BackgroundColor="Beige" Command="{Binding GetFinishedlistCommand}" />
+        <Button Text="Favouritelist" BackgroundColor="Beige"  Command="{Binding GetFavouritelistCommand}"/>
         <Button Text="Search" BackgroundColor="Beige" Command="{Binding BookSearchCommand}" />
     </StackLayout>
 

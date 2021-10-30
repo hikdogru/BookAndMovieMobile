@@ -2,18 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:book="clr-namespace:BookAndMovieMobile.ViewModel.Book"
-             x:Class="BookAndMovieMobile.View.Pages.BookSearch">
-   
-    
+             x:Class="BookAndMovieMobile.View.Pages.BookPages.BookFinishedlist">
+
+
     <ContentPage.BindingContext>
-        <book:BookViewModel />
+        <book:BookViewModel/>
     </ContentPage.BindingContext>
+
 
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="txtSearchQuery" Placeholder="Search Movie" FontSize="Large" TextColor="#845cd6" />
-            <Button Text="Search"  Clicked="SearchBook" />
-
             <ListView x:Name="bookList" RowHeight="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -34,7 +32,24 @@
 
                                 </StackLayout>
 
-                                <StackLayout HorizontalOptions="Center">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button  Text="Add to Favouritelist"
+                                        FontSize="Small"
+                                        BackgroundColor="#0d6efd"
+                                        WidthRequest="200"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.AddBookFavouritelistCommand, Source={x:Reference bookList}}"
+                                         CommandParameter="{Binding .}" />
+
+                                    <Button Text="Delete"
+                                        FontSize="Small"
+                                        BackgroundColor="#dc3545"
+                                        WidthRequest="100"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.DeleteBookFinishedlistCommand, Source={x:Reference bookList}}"
+                                         CommandParameter="{Binding .}" />
+
+
                                     <ImageButton Source="detail.png"
                                                  BackgroundColor="Transparent"
                                                  x:Name="btnDetail"
@@ -52,4 +67,6 @@
             </ListView>
         </StackLayout>
     </ContentPage.Content>
+
+
 </ContentPage>

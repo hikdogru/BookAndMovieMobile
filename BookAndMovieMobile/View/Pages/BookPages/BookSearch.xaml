@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:book="clr-namespace:BookAndMovieMobile.ViewModel.Book"
+             x:Class="BookAndMovieMobile.View.Pages.BookSearch">
+   
+    
+    <ContentPage.BindingContext>
+        <book:BookViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtSearchQuery" Placeholder="Search Book" FontSize="Large" TextColor="#845cd6" />
+            <Button Text="Search"  Clicked="SearchBook" />
+
+            <ListView x:Name="bookList" RowHeight="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <StackLayout>
+
+                                <StackLayout>
+                                    <Image x:Name="bookImage" Source="{Binding Thumbnail}" HorizontalOptions="Center" Margin="20"></Image>
+                                    <Label Text="{Binding Title}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Authors[0]}" FontSize="Large" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="Center">
+                                    <Image Source="star.png" />
+                                    <Label Text="{Binding AverageRating}" FontSize="Large">
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button Text="Add to Wishlist"
+                                        FontSize="Small"
+                                        BackgroundColor="#0d6efd"
+                                        WidthRequest="175"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.AddBookWishlistCommand, Source={x:Reference bookList}}"
+                                         CommandParameter="{Binding .}" />
+
+                                    <Button Text="Add to Finishedlist"
+                                        FontSize="Small"
+                                        BackgroundColor="#198754"
+                                        WidthRequest="175"
+                                        TextColor="White"
+                                         Command="{Binding Path=BindingContext.AddBookFinishedlistCommand, Source={x:Reference bookList}}"
+                                         CommandParameter="{Binding .}" />
+                                    
+                                    <ImageButton Source="detail.png"
+                                                 BackgroundColor="Transparent"
+                                                 x:Name="btnDetail"
+                                                 Command="{Binding Path=BindingContext.BookDetailCommand, Source={x:Reference bookList}}"
+                                                 CommandParameter="{Binding .}"
+                                                 ></ImageButton>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
