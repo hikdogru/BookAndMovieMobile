@@ -17,7 +17,6 @@
 
     <local:Book Title="Book" IconImageSource="book.png" />
     
-    <local:User Title="User" IconImageSource="user.png"/>
 
 
 

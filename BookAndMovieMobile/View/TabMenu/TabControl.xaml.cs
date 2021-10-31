@@ -22,7 +22,6 @@ namespace BookAndMovieMobile.View.TabMenu
         public TabControl()
         {
             InitializeComponent();
-           
         }
     }
 }

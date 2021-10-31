@@ -27,8 +27,7 @@ namespace BookAndMovieMobile.View.Pages
             var model = new BookApiModel();
             var books = model.GetBookFromGoogle(url: clientUrl);
             BookConfiguration(books: books);
-            bookList.ItemsSource = _books.Where(x => x.SmallThumbnail != null);
-            bookList.ItemsSource = _books;
+            bookList.ItemsSource = _books.Where(x => x.Thumbnail != null);
             txtSearchQuery.Text = "";
         }
 

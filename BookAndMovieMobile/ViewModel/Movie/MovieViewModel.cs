@@ -158,20 +158,20 @@ namespace BookAndMovieMobile.ViewModel.Movie
 
         private static void RedirectToMovieWishlistPage(List<MovieModel> movies)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movies), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWishlist(movies: movies), false);
         }
 
         private static void RedirectToMovieWatchedlistPage(List<MovieModel> movies)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movies), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieWatchedlist(movies: movies), false);
         }
 
         private static void RedirectToMovieFavouritelistPage(List<MovieModel> movies)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movies), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new MovieFavouritelist(movies: movies), false);
         }
 
     }

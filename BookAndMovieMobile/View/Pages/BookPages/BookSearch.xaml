@@ -2,12 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:book="clr-namespace:BookAndMovieMobile.ViewModel.Book"
+            xmlns:tab="clr-namespace:BookAndMovieMobile.View.TabMenu"
              x:Class="BookAndMovieMobile.View.Pages.BookSearch">
    
     
     <ContentPage.BindingContext>
         <book:BookViewModel />
+
     </ContentPage.BindingContext>
+
+
 
     <ContentPage.Content>
         <StackLayout>
@@ -50,7 +54,7 @@
                                         TextColor="White"
                                          Command="{Binding Path=BindingContext.AddBookFinishedlistCommand, Source={x:Reference bookList}}"
                                          CommandParameter="{Binding .}" />
-                                    
+
                                     <ImageButton Source="detail.png"
                                                  BackgroundColor="Transparent"
                                                  x:Name="btnDetail"
@@ -66,6 +70,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
         </StackLayout>
+
     </ContentPage.Content>
+    
+    
 </ContentPage>

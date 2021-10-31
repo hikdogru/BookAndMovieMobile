@@ -36,21 +36,7 @@ namespace BookAndMovieMobile.ViewModel.Book
         public ICommand DeleteBookFavouritelistCommand => new Command(DeleteBookFavouritelist);
         public ICommand DeleteBookWishlistCommand => new Command(DeleteBookWishlist);
 
-        
-
-        public BookViewModel()
-        {
-            //GetPopularBooks();
-        }
-
-        private void GetPopularBooks()
-        {
-            Books = new ObservableCollection<BookModel>();
-            string clientUrl = _rootUrl + "&maxResults=20&q=flowers&orderBy=newest";
-            var books = new BookApiModel().GetBookFromGoogle(url: clientUrl);
-            BookConfiguration(books: books);
-        }
-
+       
         private ObservableCollection<BookModel> BookConfiguration(List<BookInfoModel> books)
         {
             Books = new ObservableCollection<BookModel>();
@@ -175,20 +161,20 @@ namespace BookAndMovieMobile.ViewModel.Book
 
         private static void RedirectToBookFinishedlistPage(ObservableCollection<BookModel> books)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new BookFinishedlist(books: books), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new BookFinishedlist(books: books), false);
         }
 
         private static void RedirectToBookFavouritelistPage(ObservableCollection<BookModel> books)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new BookFavouritelist(books: books), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new BookFavouritelist(books: books), false);
         }
 
         private static void RedirectToBookWishlistPage(ObservableCollection<BookModel> books)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new BookWishlist(books: books), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new BookWishlist(books: books), false);
         }
     }
 }

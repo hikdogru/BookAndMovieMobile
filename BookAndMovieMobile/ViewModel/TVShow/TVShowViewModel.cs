@@ -166,20 +166,20 @@ namespace BookAndMovieMobile.ViewModel.TVShow
 
         private static void RedirectToTVShowWishlistPage(List<TVShowModel> tvshows)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshows), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWishlist(tvShows: tvshows), false);
         }
 
         private static void RedirectToTVShowWatchedlistPage(List<TVShowModel> tvshows)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshows), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowWatchedlist(tvShows: tvshows), false);
         }
 
         private static void RedirectToTVShowFavouritelistPage(List<TVShowModel> tvshows)
         {
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshows), true);
+            Application.Current.MainPage.Navigation.PopModalAsync(false);
+            Application.Current.MainPage.Navigation.PushModalAsync(new TVShowFavouritelist(tvShows: tvshows), false);
         }
     }
 }
